@@ -18,21 +18,9 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2
-      - name: Run Gosec Security Scanner
-        uses: securego/gosec@v2.9.1
-        with:
-          args: -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G204,G304,G307,G401,G404,G501,G505,G601 ./...
-
-  check-cdc-security:
-    runs-on: ubuntu-latest
-    env:
-      GO111MODULE: on
-    defaults:
-      run:
-        working-directory: cdc
-    steps:
-      - name: Checkout Source
-        uses: actions/checkout@v2
+      - name: Go to BR project
+        run: cd br
+        shell: bash
       - name: Run Gosec Security Scanner
         uses: securego/gosec@v2.9.1
         with:

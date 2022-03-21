@@ -38,7 +38,7 @@ func main() {
 
 	rootCmd := &cobra.Command{
 		Use:              "br",
-		Short:            "br is a TiDB/TiKV cluster backup restore tool.",
+		Short:            "br is a backup/restore tool for TiKV cluster.",
 		TraverseChildren: true,
 		SilenceUsage:     true,
 	}

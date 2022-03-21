@@ -191,7 +191,7 @@ func startPProf(cmd *cobra.Command) error {
 	return nil
 }
 
-// HasLogFile returns whether we set a log file.
+// HasLogFile returns whether we set a log   file.
 func HasLogFile() bool {
 	return atomic.LoadUint64(&hasLogFile) != uint64(0)
 }

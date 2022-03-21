@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GO111MODULE: on
-    defaults:
-      run:
-        working-directory: br
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2

@@ -25,4 +25,4 @@ jobs:
           working-directory: br
 
           # Optional: golangci-lint command line arguments.
-          args: -v $(go list ./...| grep "github.com\/tikv\/migration\/br" | sed 's|github.com/tikv/migration/br/||') --config ../.golangci.yml --allow-parallel-runners
+          args: -v $(go list ./...| grep "github.com\/tikv\/migration\/br" | sed 's|github.com/tikv/migration/br/||') --config ../.golangci.yml --allow-parallel-runners --timeout=3m

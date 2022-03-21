@@ -1,4 +1,4 @@
-name: BR Golangci Lint
+name: BR CI
 on:
   push:
     branches: main
@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  golangci-br:
+  golangci-lint:
     name: Run golangci lint for TiKV BR
     runs-on: ubuntu-latest
     steps:
@@ -23,3 +23,15 @@ jobs:
           version: v1.42.0
           working-directory: br
           args: -v $(go list ./...| grep "github.com\/tikv\/migration\/br" | sed 's|github.com/tikv/migration/br/||') --config ../.golangci.yml --allow-parallel-runners --timeout=3m
+  gosec:
+    runs-on: ubuntu-latest
+    env:
+      GO111MODULE: on
+    steps:
+      - uses: actions/checkout@v2
+      - name: gosec
+        uses: securego/gosec@master
+        with:
+          version: v2.9.1
+          working-directory: br
+          args: -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G204,G304,G307,G401,G404,G501,G505,G601 ./...

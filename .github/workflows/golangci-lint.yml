@@ -1,5 +1,6 @@
 name: golangci-lint
 on:
+  push:
   pull_request:
 
 permissions:
@@ -12,7 +13,7 @@ jobs:
     steps:
       - uses: actions/setup-go@v2
       - uses: actions/checkout@v2
-      - run: echo {{ github.pull_request.path }}
+      - run: echo ${{ toJSON(github) }}
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:

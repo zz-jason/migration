@@ -11,7 +11,7 @@
 
 **Backup & Restore (BR)** is a command-line tool for distributed backup and restoration of the TiDB cluster data.
 
-## Architecture
+##  Architecture
 
 <img src="images/arch.svg?sanitize=true" alt="architecture" width="600"/>
 

@@ -19,7 +19,10 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v2
       - name: Go to BR project
-        run: cd br
+        run: |
+          pwd
+          ls
+          cd br
         shell: bash
       - name: Run Gosec Security Scanner
         uses: securego/gosec@v2.9.1
